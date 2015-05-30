@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Countries Data</title>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+        body {
+  margin-left: 10px;
+}
+table{
+  border:1px solid #000000;
+  border-collapse:collapse;
+}
+    </style>
+</head>
+<body ng-app="myApp">
+  <h1>Challenge Three</h1>
+  <div ng-controller="oneController">
+    <table class="table">
+        <thead>
+                <tr>
+                  <th>Country name</th>
+                  <th>Population in 1960 </th>
+                  <th>Population in 1970 </th>
+                  <th>Population in 1980 </th>
+                  <th>Population in 1990 </th>
+                  <th>Population in 2000 </th>
+                  <th>Population in 2010 </th>
+                  <th>% growth (1960 - 2010)</th>
+                </tr>
+              </thead>
+            <tbody ng-controller="oneController">
+            <tr ng-repeat="country in countries | orderBy:'name'">
+                <td>{{country.name}}</td>
+                <td>{{country.1960 | number:0}}</td>
+                <td>{{country.1970 | number:0}}</td>
+                <td>{{country.1980 | number:0}}</td>
+                <td>{{country.1990 | number:0}}</td>
+                <td>{{country.2000 | number:0}}</td>
+                <td>{{country.2010 | number:0}}</td>
+                <td>{{((country.2010 - country.1960) / country.1960) * 100 | number:0}}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="data.js"></script>
+</html>
